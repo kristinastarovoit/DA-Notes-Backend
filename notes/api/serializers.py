@@ -1,7 +1,7 @@
 from rest_framework import serializers
+from notes.models import Note
 
-class NoteSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=80)
-    content = serializers.CharField(max_length=300)
-    marked = serializers.BooleanField(default=False)
-    trash = serializers.BooleanField(default=False)
+class NoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = '__all__'
